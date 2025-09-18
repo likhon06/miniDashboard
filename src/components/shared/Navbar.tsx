@@ -29,7 +29,7 @@ const Navbar = ({ session }: NavbarProps) => {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             onClick={() => signOut({
-                                callbackUrl: "http://localhost:3000/"
+                                callbackUrl: "/"
                             })}
                             className="px-3 py-1 text-xs bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 border border-red-200 dark:border-red-800 rounded hover:bg-red-100 dark:hover:bg-red-900/30 transition-colors"
                         >
@@ -40,7 +40,7 @@ const Navbar = ({ session }: NavbarProps) => {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             onClick={() => signIn("google", {
-                                callbackUrl: "http://localhost:3000/"
+                                callbackUrl: "/"
                             })}
                             className="px-3 py-1 text-xs bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-800 rounded hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors"
                         >
