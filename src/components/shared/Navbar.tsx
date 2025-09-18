@@ -15,7 +15,6 @@ const Navbar = ({ session }: NavbarProps) => {
             <nav className="mx-auto max-w-5xl flex items-center justify-between px-4 py-3">
                 <Link href="/" className="text-sm font-semibold">Mini Dashboard</Link>
                 <div className="flex items-center gap-4 text-sm">
-                    <Link className="hover:underline underline-offset-4" href="/">Home</Link>
                     {session?.user ? (
                         <>
                             <Link className="hover:underline underline-offset-4" href="/posts">Posts</Link>
