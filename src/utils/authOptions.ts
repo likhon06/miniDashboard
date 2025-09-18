@@ -9,9 +9,10 @@ export const authOptions: NextAuthOptions = {
         })
     ],
     callbacks: {
-        async redirect({ baseUrl }) {
-            return baseUrl;
+        async redirect({ url, baseUrl }) {
+          if (url.startsWith(baseUrl)) return url;
+          return baseUrl; 
         }
-    },
+      },      
     secret: process.env.NEXTAUTH_SECRET
 }
