@@ -8,6 +8,9 @@ export const authOptions: NextAuthOptions = {
             clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
         })
     ],
+    pages: {
+        signIn: "/auth/signin"
+    },
     callbacks: {
         async redirect({ url, baseUrl }) {
           if (url.startsWith(baseUrl)) return url;
