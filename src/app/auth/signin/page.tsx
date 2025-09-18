@@ -6,6 +6,15 @@ import { signIn } from "next-auth/react";
 
 export default function SignInPage() {
   const [loading, setLoading] = useState(false);
+
+  const handleSignIn = async () => {
+    setLoading(true);
+    try {
+      await signIn("google", { callbackUrl: "/" });
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <div className="flex items-center justify-center min-h-[60vh]">
       <motion.div
@@ -20,7 +29,7 @@ export default function SignInPage() {
               Sign in with your Google account to access your profile and protected features.
             </p>
             <button
-              onClick={() => signIn("google", { callbackUrl: "/" })}
+              onClick={handleSignIn}
               disabled={loading}
               className="w-full flex items-center justify-center gap-3 px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >

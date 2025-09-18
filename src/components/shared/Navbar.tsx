@@ -3,12 +3,17 @@ import React from 'react'
 import Link from 'next/link'
 import { motion } from "framer-motion";
 import { signIn, signOut } from "next-auth/react";
+import { Session } from "next-auth";
 
-const Navbar = ({ session }: { session: any }) => {
+interface NavbarProps {
+  session: Session | null;
+}
+
+const Navbar = ({ session }: NavbarProps) => {
     return (
         <header className="border-b border-black/10 dark:border-white/10 sticky top-0 bg-background/80 backdrop-blur z-10">
             <nav className="mx-auto max-w-5xl flex items-center justify-between px-4 py-3">
-                <a href="/" className="text-sm font-semibold">Mini Dashboard</a>
+                <Link href="/" className="text-sm font-semibold">Mini Dashboard</Link>
                 <div className="flex items-center gap-4 text-sm">
                     <Link className="hover:underline underline-offset-4" href="/">Home</Link>
                     {session?.user ? (

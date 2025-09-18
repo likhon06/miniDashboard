@@ -16,7 +16,7 @@ type User = {
 };
 
 export default function UsersPage() {
-  const { data, loading, error, refetch } = useFetch<User[]>(
+  const { data, loading, error } = useFetch<User[]>(
     "https://jsonplaceholder.typicode.com/users"
   );
   const [selected, setSelected] = useState<User | null>(null);
@@ -25,9 +25,6 @@ export default function UsersPage() {
     <div className="flex flex-col gap-4">
       <div className="flex items-center justify-between">
         <h1 className="text-xl font-semibold">Users</h1>
-        <div className="flex items-center gap-2">
-          <button onClick={() => refetch()} className="text-sm underline underline-offset-4">Refresh</button>
-        </div>
       </div>
 
       {loading && <div className="text-sm opacity-70">Loading users…</div>}

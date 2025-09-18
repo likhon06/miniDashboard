@@ -11,7 +11,7 @@ type Post = {
 };
 
 export default function PostsPage() {
-  const { data, error, loading, refetch } = useFetch<Post[]>(
+  const { data, error, loading } = useFetch<Post[]>(
     "https://jsonplaceholder.typicode.com/posts"
   );
 
@@ -27,9 +27,6 @@ export default function PostsPage() {
     <div className="flex flex-col gap-4">
       <div className="flex items-center justify-between">
         <h1 className="text-xl font-semibold">Posts</h1>
-        <div className="flex items-center gap-2">
-          <button onClick={() => refetch()} className="text-sm underline underline-offset-4">Refresh</button>
-        </div>
       </div>
       {loading && <div className="text-sm opacity-70">Loading posts…</div>}
       {error && (
