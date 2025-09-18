@@ -10,7 +10,7 @@ export default function SignInPage() {
   const handleSignIn = async () => {
     setLoading(true);
     try {
-      await signIn("google", { callbackUrl: "/" });
+      await signIn("google");
     } finally {
       setLoading(false);
     }
