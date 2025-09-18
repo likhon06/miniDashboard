@@ -1,10 +1,3 @@
-// Temporarily disable middleware to test
-// export { default } from "next-auth/middleware"
+export { default } from "next-auth/middleware"
 
-// export const config = {
-//     matcher: [
-//         '/users/:path*',
-//         '/posts/:path*', 
-//         '/profile/:path*'
-//     ]
-// }
+export const config = { matcher: ["/users(.*)", "/posts(.*)", "/profile(.*)"] }
