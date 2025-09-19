@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { MdVerifiedUser } from "react-icons/md";
 
+
 export default function ProfilePage() {
   const { data: session, status } = useSession();
   console.log("session", session);
