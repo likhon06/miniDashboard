@@ -8,24 +8,8 @@ export const authOptions: NextAuthOptions = {
             clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
         })
     ],
-    pages: {
-        signIn: '/auth/signin'
-    },
     callbacks: {
-        async redirect({ url, baseUrl }) {
-            if (url.includes('/auth/signin')) {
-                return baseUrl;
-            }
-            if (url.startsWith("/")) {
-                return `${baseUrl}${url}`;
-            }
-            try {
-                const urlObj = new URL(url);
-                if (urlObj.origin === baseUrl) {
-                    return url;
-                }
-            } catch {
-            }
+        async redirect({ baseUrl }) {
             return baseUrl;
         }
     },
