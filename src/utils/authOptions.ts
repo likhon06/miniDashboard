@@ -11,6 +11,24 @@ export const authOptions: NextAuthOptions = {
     pages: {
         signIn: '/auth/signin'
     },
+    callbacks: {
+        async redirect({ url, baseUrl }) {
+            if (url.includes('/auth/signin')) {
+                return baseUrl;
+            }
+            if (url.startsWith("/")) {
+                return `${baseUrl}${url}`;
+            }
+            try {
+                const urlObj = new URL(url);
+                if (urlObj.origin === baseUrl) {
+                    return url;
+                }
+            } catch {
+            }
+            return baseUrl;
+        }
+    },
     secret: process.env.NEXTAUTH_SECRET
 }
 
