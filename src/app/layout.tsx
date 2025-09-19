@@ -1,7 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { getServerSession } from "next-auth";
-import Providers from "@/components/Providers";
 import Navbar from "@/components/shared/Navbar";
 import { authOptions } from "@/utils/authOptions";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -31,12 +30,10 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Providers>
           <Navbar session={session} />
           <main className="mx-auto max-w-5xl px-4 py-6">
             {children}
           </main>
-        </Providers>
       </body>
     </html>
   );
